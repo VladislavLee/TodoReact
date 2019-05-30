@@ -1,0 +1,23 @@
+
+.wrapper{
+    margin: 0 auto;
+    display: flex;
+}
+
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border: solid gray 1px;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+.card .buttonsControl button{
+    float: right;
+}
