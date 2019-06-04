@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import uuid from "uuid";
-import './style.css';
+import '../style.css';
 
 
 const cards = [
@@ -17,7 +17,7 @@ const cards = [
         cardIsDone: false,
         cardId: uuid.v4()
     }
-    ];
+];
 
 
 function SearchingFor(term) {
@@ -27,7 +27,6 @@ function SearchingFor(term) {
 }
 
 class Card extends Component{
-
     constructor(props){
         super(props);
 
@@ -66,9 +65,9 @@ class Card extends Component{
 
         card.cardId =
 
-        this.setState({
-            cards: [...newCards]
-        })
+            this.setState({
+                cards: [...newCards]
+            })
     };
 
 
@@ -145,21 +144,21 @@ class Card extends Component{
 
                     <input name="cardDescription" onChange={(event) =>this.handleSearch(event)} value={term} />
                 </form>
-                    {
-                        cards.filter(SearchingFor(term)).map((card)=> {
-                            return  <div className="card" key={card.cardId}>
-                                        <div className="cardTitle1"><input id={card.cardId}  name="cardTitle" onChange={(event) =>this.handleChangeTitle(event,card.cardId)}   defaultValue={card.cardTitle}/></div>
+                {
+                    cards.filter(SearchingFor(term)).map((card)=> {
+                        return  <div className="card" key={card.cardId}>
+                            <div className="cardTitle1"><input id={card.cardId}  name="cardTitle" onChange={(event) =>this.handleChangeTitle(event,card.cardId)}   defaultValue={card.cardTitle}/></div>
 
-                                        <div className="task">
-                                            <div className="cardDescription1"><input id={card.cardId} name="cardDescription" onChange={(event) =>this.handleChangeDescription(event,card.cardId)} defaultValue={card.cardDescription}/></div>
-                                        </div>
-                                        <div className="buttonsControl">
-                                            <input  type="checkbox"  onClick={(event)=> this.updateCard(card)} />
-                                            <button onClick={(event)=> this.removeCard(card)}>Remove </button>
-                                        </div>
-                                     </div>
-                        })
-                    }
+                            <div className="task">
+                                <div className="cardDescription1"><input id={card.cardId} name="cardDescription" onChange={(event) =>this.handleChangeDescription(event,card.cardId)} defaultValue={card.cardDescription}/></div>
+                            </div>
+                            <div className="buttonsControl">
+                                <input  type="checkbox"  onClick={(event)=> this.updateCard(card)} />
+                                <button onClick={(event)=> this.removeCard(card)}>Remove </button>
+                            </div>
+                        </div>
+                    })
+                }
 
             </div>
         )
@@ -167,7 +166,6 @@ class Card extends Component{
 }
 
 export default Card;
-
 
 
 
