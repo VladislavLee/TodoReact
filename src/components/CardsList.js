@@ -29,7 +29,7 @@ function SearchingFor(term) {
 class CardsList extends Component{
 
 
-    addCard = (newCard) => {
+    addCard = (newCard) => {//функия создания карточки, на вход пригнимает обьект карточки, по непонятной причине он ее принимает но не хочет изменять state
         this.setState ({cards: [...this.state.cards, newCard] })
     };
 
