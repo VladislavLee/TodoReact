@@ -1,0 +1,10 @@
+.createCardForm{
+    display: flex;
+    flex-direction: column;
+    background: red;
+}
+
+.MuiInputBase-input{
+    display: flex;
+    flex-direction: column;
+}
