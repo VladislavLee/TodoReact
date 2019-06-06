@@ -25,7 +25,5 @@ export const markers = [
 
 
 export const trash = [
-        {
 
-        }
     ];

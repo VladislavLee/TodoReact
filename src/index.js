@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CardsList from "./components/CardsList";
+import MainCardsList from "./components/MainCardsList";
 
 
 
-ReactDOM.render(<CardsList/>, document.getElementById('root'));
+ReactDOM.render(<MainCardsList/>, document.getElementById('root'));
 
 
