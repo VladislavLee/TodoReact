@@ -11,18 +11,21 @@ class TrashList extends Component{
 
         return (
             <Consumer>
-                {({ trash }) => (
+                {({ trash, removeAllTrashByTimer}) =>  (
+
                     <div className="wrapper">
                         {
                           trash.map(card=> {
                                 return (
                                     <CardTrash key={card.cardId} card={card} />
                                 );
-                            })
+                            },removeAllTrashByTimer())
                         }
+
                     </div>
 
-                )}
+                ) }
+
             </Consumer>
         )
     }

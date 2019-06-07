@@ -30,19 +30,23 @@ class MainCardsList extends Component{
 
     removeCard =(cardId) => {
         const list = [...this.state.cards];
-
+        console.log(this.state.trash);
         const updatedList = list.filter(item => item.cardId !== cardId);
 
         const removeItem = cards.find(elem => {
             return elem.cardId === cardId;
         });
 
-        const newTrash = [...trash, removeItem];
 
+        const newTrash = [...this.state.trash, removeItem];
+
+        console.log(newTrash);
         this.setState({
             cards: updatedList,
             trash: newTrash
         })
+
+
     };
 
 
@@ -61,6 +65,14 @@ class MainCardsList extends Component{
             trash: []
         })
     };
+
+
+    removeAllTrashByTimer = () => {
+        setTimeout(()=>{
+            this.removeAllTrash()
+        }, 60000)
+    };
+
 
 
     restoreTrashByItem = (cardId) => {
@@ -100,10 +112,11 @@ class MainCardsList extends Component{
     };
 
 
+
+
+
     handleChangeFor = (propertyName,event,cardId) => {
-
         const nameInput = propertyName;
-
 
         const newCardList = [...this.state.cards];
 
@@ -132,6 +145,24 @@ class MainCardsList extends Component{
             return x.cardTitle.toLowerCase().includes(term.toLowerCase()) || !term;
         }
     };
+
+
+    addMarker = (event) => {
+        event.preventDefault();
+        const markerName = (event.target.elements.markerName.value);
+        const marker = {
+            markerName,
+            id: uuid.v4(),
+        };
+
+        const newMarkers = [...markers, marker];
+
+        this.setState({
+            markers: newMarkers
+        })
+    };
+
+
 
 
 
@@ -187,6 +218,8 @@ class MainCardsList extends Component{
         SearchingFor: this.SearchingFor,
         removeCardTrashByItem: this.removeCardTrashByItem,
         removeAllTrash: this.removeAllTrash,
+        removeAllTrashByTimer: this.removeAllTrashByTimer,
+        addMarker: this.addMarker,
     };
 
     render() {
@@ -194,6 +227,7 @@ class MainCardsList extends Component{
             <div className="wrapper">
                 <Provider value={this.state}>
                     <BrowserRouter>
+
                         <Switch>
                             <Route exact path='/' component={ CardsList } />
                             <Route path='/trash' component={ TrashList } />

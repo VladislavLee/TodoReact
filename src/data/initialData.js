@@ -13,13 +13,18 @@ export const cards = [
         cardDescription: "learn js",
         cardIsDone: false,
         cardId: uuid.v4()
+    },
+
+    {
+        cardTitle: "3 task",
+        cardDescription: "learn java",
+        cardIsDone: false,
+        cardId: uuid.v4()
     }
 ];
 
 export const markers = [
     {
-        markerName: '1 marker',
-        markerId: uuid.v4(),
     }
 ];
 
