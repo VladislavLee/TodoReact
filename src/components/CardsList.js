@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 
 
 class CardsList extends Component{
-
     render() {
-
         return (
                 <div className="wrapper">
                         <CreateCard/>

@@ -12,19 +12,15 @@ export default class CardTrash extends Component {
         return (
             <Consumer>
                 {({ updateStatusCard,removeCardTrashByItem,handleChangeFor,trash }) => (
-
-                    <div className="card" key={trash.cardId}>
-                        {console.log(trash)}
+                    <div className="card" key={this.props.card.cardId}>
                         <CardUI >
                             <CardContent>
                                 <TextField
-                                    id={trash.cardId}   name="cardTitle" onChange={(event) =>handleChangeFor('cardTitle',event,trash.cardId)}  defaultValue={trash.cardTitle}
+                                    id={this.props.card.cardId}   name="cardTitle" onChange={(event) =>handleChangeFor('cardTitle', event,this.props.card.cardId)}  defaultValue={this.props.card.cardTitle}
                                 />
-
                                 <TextField
-                                    id={trash.cardId} name="cardDescription" onChange={(event) =>handleChangeFor('cardDescription',event,trash.cardId)} defaultValue={trash.cardDescription}
+                                    id={this.props.card.cardId} name="cardDescription" onChange={(event) =>handleChangeFor('cardDescription', event, this.props.card.cardId)} defaultValue={ this.props.card.cardDescription}
                                 />
-
                             </CardContent>
                             <CardActions>
                                 <Checkbox
@@ -33,7 +29,7 @@ export default class CardTrash extends Component {
                                         'aria-label': 'primary checkbox',
                                     }}
                                 />
-                                <Button size="small" onClick={(event)=> removeCardTrashByItem(trash.cardId)}>Remove</Button>
+                                <Button size="small" onClick={(event)=> removeCardTrashByItem(this.props.card.cardId)}>Remove</Button>
                             </CardActions>
                         </CardUI>
 

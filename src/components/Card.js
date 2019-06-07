@@ -19,7 +19,6 @@ class Card extends Component{
                 <Consumer>
                     {({ updateStatusCard, removeCard, handleChangeFor}) => (
                         <div className="card" key={this.props.cardId}>
-
                             <CardUI >
                                 <CardContent>
 

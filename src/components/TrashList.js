@@ -12,11 +12,11 @@ class TrashList extends Component{
         return (
             <Consumer>
                 {({ trash }) => (
-                    <div className="wrapper">{console.log(trash)}
+                    <div className="wrapper">
                         {
-                          trash.map(info => {
+                          trash.map(card=> {
                                 return (
-                                    <CardTrash key={info.cardId} />
+                                    <CardTrash key={card.cardId} card={card} />
                                 );
                             })
                         }

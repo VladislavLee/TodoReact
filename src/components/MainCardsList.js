@@ -3,16 +3,11 @@ import {  Route, Switch ,BrowserRouter} from "react-router-dom";
 import uuid from "uuid";
 import './style.css';
 import {Provider} from './Context';
-
-import  {cards,markers, trash} from '../data/initialData'
-
+import  {cards,markers, trash} from '../data/initialData';
 import CardsList from "./CardsList";
 import TrashList from "./TrashList";
 
-
-
 class MainCardsList extends Component{
-
 
     addCard = (event) => {
         event.preventDefault();
@@ -30,9 +25,8 @@ class MainCardsList extends Component{
         list.push(newCard);
 
         this.setState ({cards: list })
-
-
     };
+
 
     removeCard =(cardId) => {
         const list = [...this.state.cards];
@@ -53,32 +47,23 @@ class MainCardsList extends Component{
 
 
     removeCardTrashByItem = (cardId) => {
-
         const list = [...this.state.trash];
-
         const updatedList = list.filter(item => item.cardId !== cardId);
 
-        const removeItem = cards.find(elem => {
-            return elem.cardId === cardId;
-        });
-
-        const newTrash = [...trash, removeItem];
-
         this.setState({
-            cards: updatedList,
-            trash: newTrash
+            trash: updatedList
         })
     };
 
 
-    removeTrash = () => {
+    removeAllTrash = () => {
         this.setState({
             trash: []
         })
     };
 
-    restoreTrashByItem = (cardId) => {
 
+    restoreTrashByItem = (cardId) => {
         const newTrash = [...trash];
 
         newTrash.filter(elem => {
@@ -114,6 +99,7 @@ class MainCardsList extends Component{
         });
     };
 
+
     handleChangeFor = (propertyName,event,cardId) => {
 
         const nameInput = propertyName;
@@ -134,12 +120,12 @@ class MainCardsList extends Component{
     };
 
 
-
     handleSearch=(event)=>{
         this.setState({
             term: event.target.value
         })
     };
+
 
     SearchingFor=(term)=> {
         return (x) => {
@@ -152,17 +138,16 @@ class MainCardsList extends Component{
     // hydrateStateWithLocalStorage() {
     //     // for all items in state
     //     for (let key in this.state) {
-    //         // if the key exists in localStorage
+    //
     //         if (localStorage.hasOwnProperty(key)) {
-    //             // get the key's value from localStorage
+    //
     //             let value = localStorage.getItem(key);
     //
-    //             // parse the localStorage string and setState
+    //
     //             try {
     //                 value = JSON.parse(value);
     //                 this.setState({ [key]: value });
     //             } catch (e) {
-    //                 // handle empty string
     //                 this.setState({ [key]: value });
     //             }
     //         }
@@ -172,8 +157,7 @@ class MainCardsList extends Component{
     //
     // componentDidMount(){
     //     this.hydrateStateWithLocalStorage();
-    //     // add event listener to save state to localStorage
-    //     // when user leaves/refreshes the page
+    //
     //     window.addEventListener(
     //         "beforeunload",
     //         this.saveStateToLocalStorage.bind(this)
@@ -182,14 +166,12 @@ class MainCardsList extends Component{
     //
     //
     // saveStateToLocalStorage() {
-    //     // for every item in React state
+    //
     //     for (let key in this.state) {
-    //         // save to localStorage
+    //
     //         localStorage.setItem(key, JSON.stringify(this.state[key]));
     //     }
     // }
-
-
 
 
     state = {
@@ -204,12 +186,10 @@ class MainCardsList extends Component{
         handleSearch: this.handleSearch,
         SearchingFor: this.SearchingFor,
         removeCardTrashByItem: this.removeCardTrashByItem,
-
+        removeAllTrash: this.removeAllTrash,
     };
 
-
     render() {
-        // {console.log(this.state.trash + 'DELTRETTTTTT')}
         return(
             <div className="wrapper">
                 <Provider value={this.state}>

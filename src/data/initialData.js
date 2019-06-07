@@ -18,7 +18,7 @@ export const cards = [
 
 export const markers = [
     {
-        markerName: '',
+        markerName: '1 marker',
         markerId: uuid.v4(),
     }
 ];
