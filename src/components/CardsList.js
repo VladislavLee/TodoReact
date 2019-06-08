@@ -1,24 +1,17 @@
 import React, {Component} from 'react';
 import './style.css';
 import CreateCard from "./CreateCard";
-import CardSearch from "./CardSearch";
 import CardsListItem from "./CardsListItem";
-import { Link } from "react-router-dom";
+import CardsOptionMenu from "./CardsOptionMenu"
 
 
 class CardsList extends Component{
     render() {
         return (
-                <div className="wrapper">
+                <div className="wrapper" style={{display: "flex", justifyContent: "space-between", marginTop: '40px' }}>
                         <CreateCard/>
-                        <CardSearch/>
                         <CardsListItem/>
-                    <div className="trash-can">
-                        <Link  to="/trash" >
-                            Trash
-                        </Link>
-
-                    </div>
+                        <CardsOptionMenu/>
                 </div>
         )
     }

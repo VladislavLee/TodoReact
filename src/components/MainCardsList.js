@@ -10,6 +10,7 @@ import TrashList from "./TrashList";
 class MainCardsList extends Component{
 
     addCard = (event) => {
+        console.log('dsfsdfsd');
         event.preventDefault();
         const cardTitle = (event.target.elements.addCardTitle.value);
         const cardDescription = (event.target.elements.addCardDescription.value);
@@ -20,33 +21,28 @@ class MainCardsList extends Component{
             cardId: uuid.v4()
         };
 
-        const list = [...this.state.cards];
+        const cardsList = [...this.state.cards,newCard];
 
-        list.push(newCard);
 
-        this.setState ({cards: list })
+
+        this.setState ({cards:cardsList })
     };
 
 
     removeCard =(cardId) => {
         const list = [...this.state.cards];
-        console.log(this.state.trash);
         const updatedList = list.filter(item => item.cardId !== cardId);
 
-        const removeItem = cards.find(elem => {
+        const removeItem = list.find(elem => {
             return elem.cardId === cardId;
         });
 
-
         const newTrash = [...this.state.trash, removeItem];
 
-        console.log(newTrash);
         this.setState({
             cards: updatedList,
             trash: newTrash
         })
-
-
     };
 
 
@@ -70,9 +66,8 @@ class MainCardsList extends Component{
     removeAllTrashByTimer = () => {
         setTimeout(()=>{
             this.removeAllTrash()
-        }, 60000)
+        }, 600000)
     };
-
 
 
     restoreTrashByItem = (cardId) => {
@@ -103,6 +98,7 @@ class MainCardsList extends Component{
         newCardList.forEach((c)=>{
             if(c.cardId === newCard.cardId){
                 c.cardIsDone = !newCard.cardIsDone;
+
             }
         });
 
@@ -110,9 +106,6 @@ class MainCardsList extends Component{
             cards: newCardList
         });
     };
-
-
-
 
 
     handleChangeFor = (propertyName,event,cardId) => {
@@ -149,18 +142,20 @@ class MainCardsList extends Component{
 
     addMarker = (event) => {
         event.preventDefault();
-        const markerName = (event.target.elements.markerName.value);
-        const marker = {
+        const markerName = (event.target.elements.markerTitle.value);
+        const newMarker = {
             markerName,
             id: uuid.v4(),
         };
 
-        const newMarkers = [...markers, marker];
+        const newMarkers = [...this.state.markers,newMarker];
 
         this.setState({
             markers: newMarkers
         })
     };
+
+
 
 
 
@@ -220,14 +215,16 @@ class MainCardsList extends Component{
         removeAllTrash: this.removeAllTrash,
         removeAllTrashByTimer: this.removeAllTrashByTimer,
         addMarker: this.addMarker,
+        color: '#7cfe00',
     };
+
+
 
     render() {
         return(
-            <div className="wrapper">
+            <div className="wrap" style={{display: 'flex', justifyContent: "space-around", marginTop: '100px'}}>
                 <Provider value={this.state}>
                     <BrowserRouter>
-
                         <Switch>
                             <Route exact path='/' component={ CardsList } />
                             <Route path='/trash' component={ TrashList } />
