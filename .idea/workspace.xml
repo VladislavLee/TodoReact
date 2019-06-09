@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91f68d38-dc5a-4f5d-a3a6-73bcb36fff47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CardFilter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RemoveAllFromTrash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardTrash.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTrash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardsList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardsListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardsListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardsOptionMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardsOptionMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateMarker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainCardsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Marker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MarkerList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TrashList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TrashList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/initialData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/initialData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,15 +26,6 @@
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CardSearch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="39" selection-start-column="39" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -103,14 +78,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TrashList.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="285">
+                <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -163,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/components/FilterByNameCard.js" />
         <option value="$PROJECT_DIR$/src/Context.js" />
         <option value="$PROJECT_DIR$/src/api/addCard.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/NotUses/App.js" />
         <option value="$PROJECT_DIR$/src/components/Context.js" />
         <option value="$PROJECT_DIR$/src/data/InitialData.js" />
@@ -191,6 +189,8 @@
         <option value="$PROJECT_DIR$/src/components/Card.js" />
         <option value="$PROJECT_DIR$/src/components/CardTrash.js" />
         <option value="$PROJECT_DIR$/src/components/TrashList.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -308,12 +308,12 @@
       <workItem from="1559988114752" duration="5697000" />
       <workItem from="1560006959714" duration="13063000" />
       <workItem from="1560027256672" duration="3663000" />
-      <workItem from="1560079679805" duration="23587000" />
+      <workItem from="1560079679805" duration="24481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174060000" />
+    <option name="totallyTimeSpent" value="174954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -342,7 +342,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002633" side_tool="true" weight="0.39405942" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.13366337" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.13366337" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -462,16 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2145">
@@ -572,10 +562,30 @@
     <entry file="file://$PROJECT_DIR$/src/components/TrashList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="285">
+            <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
