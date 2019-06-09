@@ -1,7 +1,8 @@
-
+<h3>Страница с карточками<h3/>
 <img width="1917" src="https://user-images.githubusercontent.com/37046599/59163109-28642c00-8b0d-11e9-9a19-a8bbf7586318.png">
+<h3>Корзина<h3/>
+<img width="1704" src="https://user-images.githubusercontent.com/37046599/59163117-5b0e2480-8b0d-11e9-8016-f7104322d306.png">
 <h1>Todo Card React</h3>
-
 
 <ul>
     <li>Создание карточек</li>
