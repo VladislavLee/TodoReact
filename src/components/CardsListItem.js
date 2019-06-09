@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './style.css';
 import {Consumer} from "./Context";
 import Card from "./Card";
 
@@ -7,15 +6,39 @@ import Card from "./Card";
 class CardsListItem extends Component{
 
     render() {
-        return (
-            <div className="container" style={{marginTop: "5px", display: "flex"}} >
-                <Consumer>
-                        {({ cards, SearchingFor, term}) => (
-                        cards.filter(SearchingFor(term)).map((card)=> {
-                                return <Card card={card} key={card.cardId}  />
+        function renderCards(cardsIsDone, cards, filter,SearchingFor,term ){
+            console.log(SearchingFor)
+            if(filter === 'completed' || filter ==='active' ){
+               const content = cardsIsDone.filter(SearchingFor(term)).map((card) => {
+                    return <Card
+                        card={card}
+                        key={card.cardId}
+                    />
+               });
 
-                            })
-                        )}
+                return content;
+
+            } else if(filter === 'all') {
+                const content = cards.filter(SearchingFor(term)).map((card) => {
+                    return <Card
+                        card={card}
+                        key={card.cardId}
+                    />
+                });
+
+                return content;
+            }
+        }
+
+
+        return (
+            <div className="container" style={{marginTop: "5px", display: "flex",}} >
+                <Consumer>
+                        {
+                            ({ cards, SearchingFor, term, cardsIsDone, filter} ) => (
+                                    renderCards(cardsIsDone,cards,filter,SearchingFor,term)
+                                )
+                        }
                 </Consumer>
             </div>
         )

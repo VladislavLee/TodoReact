@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './style.css';
 import { Consumer } from "./Context";
 import CardUI from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -28,20 +27,9 @@ class Card extends Component{
 
             return (
                 <Consumer>
-                    {({ updateStatusCard, removeCard, handleChangeFor}) => (
+                    {({ updateStatusCard, removeCard, handleChangeFor,filterIsDone}) => (
                             <CardUI style={ !this.props.card.cardIsDone ? TodoComponent : TodoComponent2} key={this.props.cardId}>
                                 <CardContent>
-
-                                    {/*<Typography variant="h4"*/}
-                                    {/*            gutterBottom*/}
-                                    {/*            name="cardTitle"*/}
-                                    {/*            id={this.props.card.cardId}*/}
-                                    {/*            disableUnderline={true}*/}
-                                    {/*            fullWidth={true}*/}
-                                    {/*            onChange={(event) =>handleChangeFor('cardTitle',event,this.props.card.cardId)}>*/}
-                                    {/*    {this.props.card.cardTitle}*/}
-                                    {/*</Typography>*/}
-
 
 
                                     <InputBase
@@ -68,23 +56,16 @@ class Card extends Component{
                                         fullWidth={true}
                                         inputProps={{ 'aria-label': 'naked' }}
                                     />
-                                    {/*<TextField*/}
-                                    {/*    id={this.props.card.cardId}*/}
-                                    {/*    name="cardDescription"*/}
-                                    {/*    onChange={(event) =>handleChangeFor('cardDescription',event,this.props.card.cardId)}*/}
-                                    {/*    defaultValue={this.props.card.cardDescription}*/}
-                                    {/*    margin="normal"*/}
-                                    {/*    fullWidth={true}*/}
-                                    {/*    variant="outlined"*/}
-                                    {/*/>*/}
+
                                 </CardContent>
-                                <CardActions style={{display: "flex", alignItems: "flex-end", flex: '1 0 auto', flexDirection: "row", justifyContent: "space-between",padding: "10px", }}>
+                                <CardActions style={{display: "flex", alignItems: "flex-end", flex: '1 0 auto', flexDirection: "row", justifyContent: "space-between",padding: "10px", margin: '0 auto' }}>
                                     <Checkbox
                                         onClick={(event)=>updateStatusCard(this.props.card)}
                                         inputProps={{
                                             'aria-label': 'primary checkbox',
                                         }}
                                         color="primary"
+                                        checked={this.props.card.cardIsDone}
                                     />
 
                                     <Button variant="contained" color="secondary" onClick={(event)=> removeCard(this.props.card.cardId)} >

@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {  Route, Switch ,BrowserRouter} from "react-router-dom";
 import uuid from "uuid";
-import './style.css';
 import {Provider} from './Context';
-import  {cards,markers, trash} from '../data/initialData';
+import  {cards,cardsIsDone, trash} from '../data/initialData';
 import CardsList from "./CardsList";
 import TrashList from "./TrashList";
 
-class MainCardsList extends Component{
+
+class App extends Component{
 
     addCard = (event) => {
-        console.log('dsfsdfsd');
         event.preventDefault();
         const cardTitle = (event.target.elements.addCardTitle.value);
         const cardDescription = (event.target.elements.addCardDescription.value);
@@ -22,7 +21,6 @@ class MainCardsList extends Component{
         };
 
         const cardsList = [...this.state.cards,newCard];
-
 
 
         this.setState ({cards:cardsList })
@@ -39,6 +37,8 @@ class MainCardsList extends Component{
 
         const newTrash = [...this.state.trash, removeItem];
 
+
+
         this.setState({
             cards: updatedList,
             trash: newTrash
@@ -49,6 +49,7 @@ class MainCardsList extends Component{
     removeCardTrashByItem = (cardId) => {
         const list = [...this.state.trash];
         const updatedList = list.filter(item => item.cardId !== cardId);
+
 
         this.setState({
             trash: updatedList
@@ -70,20 +71,20 @@ class MainCardsList extends Component{
     };
 
 
-    restoreTrashByItem = (cardId) => {
+    recoveryFromTrash = (cardId) => {
         const newTrash = [...trash];
 
         newTrash.filter(elem => {
             return elem.cardId !== cardId;
         });
 
-        const restoreItem = [...trash];
+        const recoveryItem = [...trash];
 
-        restoreItem.find(elem => {
+        recoveryItem.find(elem => {
             return elem.cardId === cardId;
         });
 
-        const newCards = [...cards, restoreItem];
+        const newCards = [...cards,recoveryItem];
 
         this.setState({
             cards: newCards,
@@ -120,6 +121,7 @@ class MainCardsList extends Component{
             }
         });
 
+
         this.setState({
             cards: newCardList
         });
@@ -140,70 +142,58 @@ class MainCardsList extends Component{
     };
 
 
-    addMarker = (event) => {
-        event.preventDefault();
-        const markerName = (event.target.elements.markerTitle.value);
-        const newMarker = {
-            markerName,
-            id: uuid.v4(),
-        };
+    filterCard=(filter)=>{
 
-        const newMarkers = [...this.state.markers,newMarker];
+        const newCardList = [...this.state.cards];
 
-        this.setState({
-            markers: newMarkers
-        })
+        switch (filter) {
+            case 'active':
+                const activeCard = newCardList.filter(c => !c.cardIsDone );
+                this.setState({
+                    cardsIsDone: activeCard,
+                    filter: 'active'
+                },()=>{console.log(this.state.filter);});
+                break;
+            case 'completed':
+                const completedCard = newCardList.filter(c => c.cardIsDone );
+                this.setState({
+                    cardsIsDone: completedCard,
+                    filter: 'completed'
+                });
+                break;
+            case 'all':
+                this.setState({
+                    cards: newCardList,
+                    filter: 'all'
+                });
+                break;
+            default:
+                this.setState({
+                    cards: newCardList,
+                    filter: 'all'
+                });
+        }
+
     };
 
 
+    componentDidUpdate() {
+        window.localStorage.setItem('state', JSON.stringify(this.state));
+    }
 
+    componentDidMount() {
+        try {
+            const state = window.localStorage.getItem('state');
+            this.setState({ ...JSON.parse(state) });
+        } catch (e) {}
+    }
 
-
-
-
-    // hydrateStateWithLocalStorage() {
-    //     // for all items in state
-    //     for (let key in this.state) {
-    //
-    //         if (localStorage.hasOwnProperty(key)) {
-    //
-    //             let value = localStorage.getItem(key);
-    //
-    //
-    //             try {
-    //                 value = JSON.parse(value);
-    //                 this.setState({ [key]: value });
-    //             } catch (e) {
-    //                 this.setState({ [key]: value });
-    //             }
-    //         }
-    //     }
-    // }
-    //
-    //
-    // componentDidMount(){
-    //     this.hydrateStateWithLocalStorage();
-    //
-    //     window.addEventListener(
-    //         "beforeunload",
-    //         this.saveStateToLocalStorage.bind(this)
-    //     );
-    // }
-    //
-    //
-    // saveStateToLocalStorage() {
-    //
-    //     for (let key in this.state) {
-    //
-    //         localStorage.setItem(key, JSON.stringify(this.state[key]));
-    //     }
-    // }
 
 
     state = {
         cards: cards,
-        markers: markers,
         trash: trash,
+        cardsIsDone: cardsIsDone,
         term: '',
         addCard: this.addCard,
         removeCard: this.removeCard,
@@ -215,18 +205,20 @@ class MainCardsList extends Component{
         removeAllTrash: this.removeAllTrash,
         removeAllTrashByTimer: this.removeAllTrashByTimer,
         addMarker: this.addMarker,
-        color: '#7cfe00',
+        filterCard: this.filterCard,
+        filter: 'all',
+        recoveryFromTrash: this.recoveryFromTrash,
     };
 
 
 
     render() {
         return(
-            <div className="wrap" style={{display: 'flex', justifyContent: "space-around", marginTop: '100px'}}>
+            <div className="wrap" style={{display: 'flex', justifyContent: "space-around", }}>
                 <Provider value={this.state}>
                     <BrowserRouter>
                         <Switch>
-                            <Route exact path='/' component={ CardsList } />
+                            <Route exact path='/' component={ CardsList} />
                             <Route path='/trash' component={ TrashList } />
                         </Switch>
                     </BrowserRouter>
@@ -236,7 +228,7 @@ class MainCardsList extends Component{
     }
 }
 
-export default MainCardsList;
+export default App;
 
 
 

@@ -5,7 +5,6 @@ export const cards = [
         cardTitle: "1 task",
         cardDescription: "learn react",
         cardIsDone: false,
-        markersId: [],
         cardId: uuid.v4()
     },
 
@@ -18,14 +17,7 @@ export const cards = [
 
 ];
 
-export const markers = [
-    {
-        markerId: uuid.v4(),
-        markerName: '1 marker'
-    }
-];
 
+export const trash = [];
 
-export const trash = [
-
-    ];
+export const cardsIsDone=[];

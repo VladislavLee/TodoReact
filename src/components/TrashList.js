@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import './style.css';
 import {Consumer} from "./Context";
 import CardTrash from "./CardTrash";
-
+import RemoveAllFromTrash from "./RemoveAllFromTrash";
 
 
 class TrashList extends Component{
@@ -14,19 +13,14 @@ class TrashList extends Component{
                 {({trash, removeAllTrashByTimer}) =>  (
 
 
-                    <div className="wrapper" style={{display: "flex", justifyContent: "space-between", width: "900px" }}>
-                    {
+                    <div className="wrapper" style={{display: "flex", justifyContent: "space-between", margin: '0', width: '1200px', marginTop: '100px' }}>
+                        {
+                            trash.map(card=> {
+                            return <CardTrash key={card.cardId} card={card} />
+                            },removeAllTrashByTimer())
+                        }
 
-                        trash.map(card=> {
-                            return (
-                                <CardTrash key={card.cardId} card={card} />
-                            );
-                        },removeAllTrashByTimer())
-
-
-
-
-                    }
+                        <RemoveAllFromTrash/>
                     </div>
 
                 ) }

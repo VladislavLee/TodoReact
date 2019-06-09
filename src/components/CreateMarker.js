@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './style.css';
 import { Consumer } from "./Context";
 import TextField from '@material-ui/core/TextField/index';
 
